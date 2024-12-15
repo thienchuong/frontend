@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 
-const serverPort = 3001; 
-const serverURL = `http://localhost:${serverPort}/`;
+// read serverPort from environment variable
+const serverPort = process.env.SERVER_PORT 
+// read serverURL from environment variable
+const serverURL = process.env.SERVER_URL
 
 class CustomerApp extends Component {
   constructor() {
