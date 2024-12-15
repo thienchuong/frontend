@@ -1,7 +1,5 @@
 # syntax=docker/dockerfile:1
-
 ARG NODE_VERSION=20.10.0
-
 ################################################
 # Use node image for base image for all stages.
 FROM node:${NODE_VERSION}-alpine as base
@@ -13,9 +11,7 @@ WORKDIR /usr/src/app
 FROM base as deps
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
-# Leverage a cache mount to /root/.npm to speed up subsequent builds.
-# Leverage bind mounts to package.json and package-lock.json to avoid having to copy them
-# into this layer.
+# Leverage bind mounts to package.json and package-lock.json to avoid having to copy 
 RUN --mount=type=bind,source=package.json,target=package.json \
     --mount=type=bind,source=package-lock.json,target=package-lock.json \
     --mount=type=cache,target=/root/.npm \
@@ -32,8 +28,6 @@ RUN chmod -R 777 node_modules/
 USER node
 # Copy the application code.
 COPY . .
-# Give instruction the port that the application listens on.
-EXPOSE 3000
 
 # Run the application.
 CMD npm start
