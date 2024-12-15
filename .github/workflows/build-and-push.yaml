@@ -9,7 +9,7 @@ on:
 
 
 env:
-  AWS-ECR: 267583709295.dkr.ecr.ap-southeast-1.amazonaws.com/frontend
+  AWS_ECR: 267583709295.dkr.ecr.ap-southeast-1.amazonaws.com/frontend
   AWS_REGION: ap-southeast-1
   ROLE_TO_ASSUME: arn:aws:iam::267583709295:role/github-oidc-role
 
