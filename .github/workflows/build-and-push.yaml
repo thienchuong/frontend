@@ -11,6 +11,7 @@ on:
 jobs:
   build_and_push:
     uses: thienchuong/reusable-workflows/.github/workflows/build-push.yaml@main
+    secrets: inherit
     with:
       aws-ecr: 267583709295.dkr.ecr.ap-southeast-1.amazonaws.com
       role-to-assume: arn:aws:iam::267583709295:role/github-oidc-role
