@@ -1,0 +1,21 @@
+name: Build and push docker iamge
+
+on:
+  push:
+    tags: 
+      - 'v-*'  # for production deployment tag
+      - 'canary-*' # for canary deployment tag
+      - 'dev-*' # for dev deployment tag
+
+
+env:
+  AWS-ECR: 267583709295.dkr.ecr.ap-southeast-1.amazonaws.com/frontend
+  AWS_REGION: ap-southeast-1
+  ROLE_TO_ASSUME: arn:aws:iam::267583709295:role/github-oidc-role
+
+jobs:
+  build_and_push:
+    uses: thienchuong/reusable-workflows/.github/workflows/build-push.yaml@main
+    with:
+      aws-ecr: ${{ env.AWS_ECR }}
+      role-to-assume: ${{ env.ROLE_TO_ASSUME }}
