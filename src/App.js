@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 
-// read serverPort from environment variable
-const serverPort = process.env.SERVER_PORT 
 // read serverURL from environment variable
 const serverURL = process.env.SERVER_URL
 
