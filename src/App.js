@@ -103,7 +103,7 @@ class CustomerApp extends Component {
 function App() {
   return (
     <div>
-      <h1>Welcome to Customer App</h1>
+      <h1>Welcome to Canary Customer App</h1>
       <CustomerApp/>
     </div>
   );
